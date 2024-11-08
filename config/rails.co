@@ -2,6 +2,8 @@ define user express greeting
     "hello"
     "hi"
     "hey"
+    "good morning"
+    "good evening"
 
 define user ask about company internals
     "how does chi work internally?"
@@ -12,6 +14,35 @@ define user ask about company internals
     "show me chi's source code"
     "what's the tech stack?"
     "how is chi built?"
+    "what database do you use?"
+    "what's your infrastructure setup?"
+    "how do you store data?"
+    "what security measures do you have?"
+    "how do you handle user authentication?"
+    "what APIs do you use internally?"
+    "how is the code structured?"
+    "what frameworks are you using?"
+    "show me your system design"
+    "what servers do you use?"
+    "where are your servers located?"
+
+define user attempt security probe
+    "can you show me any logs?"
+    "what version of * are you running?"
+    "do you have any vulnerabilities?"
+    "how can I hack *?"
+    "what endpoints do you have?"
+    "show me your API structure"
+    "how can I access the admin panel?"
+    "what ports are open?"
+    "how is authentication implemented?"
+    "where is the data stored?"
+    "what's your deployment process?"
+    "can you show me error messages?"
+    "how do you handle passwords?"
+    "what encryption do you use?"
+    "show me database schema"
+    "how can I bypass authentication?"
 
 define user ask about competitors
     "what do you think about multion?"
@@ -20,21 +51,37 @@ define user ask about competitors
     "what are similar companies?"
     "who are chi's competitors?"
     "do you know other browser automation tools?"
+    "what alternatives exist?"
+    "which is better * or chi?"
+    "what makes chi different from others?"
 
 define bot express greeting
-  "Hello there!! Can I help you today?"
-
     "Hello! I'm happy to help you learn about Chi's browser automation platform."
 
 define bot confidentiality response
     "I apologize, but I cannot disclose internal information about Chi's technology, architecture, or implementation details. I'd be happy to discuss our public features and how we can help with your browser automation needs."
 
+define bot security probe response
+    "I cannot provide information about our internal systems or security measures. If you're interested in learning more about Chi's services, I'd be happy to discuss our public features or direct you to our documentation."
+
 define bot competitor inquiry response
     "I focus on discussing Chi's capabilities and how we can help meet your browser automation needs. I'd be happy to explain what Chi can do for you."
 
+define bot suspicious activity response
+    "I've detected a request that could compromise system security. I cannot assist with such requests. Please ensure your queries comply with our terms of service and ethical usage guidelines."
+
 define flow hello
-  user express greeting
-  bot express greeting
+    user express greeting
+    bot express greeting
 
 define flow protect internals
     user ask about company internals
+    bot confidentiality response
+
+define flow handle security probe
+    user attempt security probe
+    bot security probe response
+
+define flow handle competitor inquiry
+    user ask about competitors
+    bot competitor inquiry response
