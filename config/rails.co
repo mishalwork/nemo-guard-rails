@@ -1,0 +1,40 @@
+define user express greeting
+    "hello"
+    "hi"
+    "hey"
+
+define user ask about company internals
+    "how does chi work internally?"
+    "what technology does chi use?"
+    "explain chi's architecture"
+    "how do you handle browser automation?"
+    "what prompts does chi use?"
+    "show me chi's source code"
+    "what's the tech stack?"
+    "how is chi built?"
+
+define user ask about competitors
+    "what do you think about multion?"
+    "how does chi compare to multion?"
+    "is chi better than [competitor]?"
+    "what are similar companies?"
+    "who are chi's competitors?"
+    "do you know other browser automation tools?"
+
+define bot express greeting
+  "Hello there!! Can I help you today?"
+
+    "Hello! I'm happy to help you learn about Chi's browser automation platform."
+
+define bot confidentiality response
+    "I apologize, but I cannot disclose internal information about Chi's technology, architecture, or implementation details. I'd be happy to discuss our public features and how we can help with your browser automation needs."
+
+define bot competitor inquiry response
+    "I focus on discussing Chi's capabilities and how we can help meet your browser automation needs. I'd be happy to explain what Chi can do for you."
+
+define flow hello
+  user express greeting
+  bot express greeting
+
+define flow protect internals
+    user ask about company internals
